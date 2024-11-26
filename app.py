@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 import hashlib
+import logging
 
 app = Flask(__name__)
 
