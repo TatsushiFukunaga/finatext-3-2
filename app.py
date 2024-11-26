@@ -2,6 +2,8 @@ from flask import Flask, request, jsonify
 import hashlib
 import logging
 
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+
 app = Flask(__name__)
 
 @app.route('/login', methods=['PUT'])
