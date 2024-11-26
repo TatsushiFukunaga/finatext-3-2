@@ -19,12 +19,16 @@ def login():
 
 @app.route('/flag', methods=['PUT'])
 def flag():
-    # flagの値を取得し、レスポンスに返却
+    # JSONリクエストからflagの値を取得
     data = request.get_json()
     flag = data.get("flag")
+
+    # flagの値をログに記録
     if flag:
+        logging.info(f"Received flag: {flag}")
         return jsonify({"flag_received": flag})
     else:
+        logging.warning("Missing flag in the request")
         return jsonify({"error": "Missing flag"}), 400
 
 if __name__ == '__main__':
